@@ -26,7 +26,7 @@ public class MergeSort {
      * 对 [begin, end) 范围的数据进行归并排序
      */
     private void sort(int beginIndex, int endIndex){
-        if(endIndex - beginIndex < 2) return; // 至少要2个元素
+        if(endIndex - beginIndex < 2) return; // 至少要2个元素,才能进行排序
 
         int middle = (beginIndex + endIndex) >> 1;
         sort(beginIndex, middle); // 归并排序左半子序列 [begin,middle)
