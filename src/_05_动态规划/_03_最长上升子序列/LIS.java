@@ -8,6 +8,9 @@ package _05_动态规划._03_最长上升子序列;
  */
 
 public class LIS {
+    /**
+     * 二分查找优化牌堆
+     */
     static int lengthOfLIS3(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
         // 牌堆的数量
