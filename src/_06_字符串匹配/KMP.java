@@ -12,9 +12,9 @@ public class KMP {
         // 检测数据合法性
         if (text == null || pattern == null) return -1;
         char[] textChars = text.toCharArray();
-        int tlen = textChars.length;
+        int tlen = textChars.length;  // 匹配串
         char[] patternChars = pattern.toCharArray();
-        int plen = patternChars.length;
+        int plen = patternChars.length; // 模式串
         if (tlen == 0 || plen == 0 || tlen < plen) return -1;
 
         // next表
@@ -36,7 +36,7 @@ public class KMP {
     /**
      * next 表构造 - 优化
      */
-    private static int[] next(String pattern) {
+    private static int[] nextval(String pattern) {
         char[] chars = pattern.toCharArray();
         int[] next = new int [chars.length];
 
@@ -64,7 +64,7 @@ public class KMP {
     /**
      * next表构造
      */
-    private static int[] next2(String pattern) {
+    private static int[] next(String pattern) {
         char[] chars = pattern.toCharArray();
         int[] next = new int [chars.length];
 

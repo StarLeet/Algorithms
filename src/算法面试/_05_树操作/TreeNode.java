@@ -1,0 +1,27 @@
+package 算法面试._05_树操作;
+
+/**
+ * @ClassName TreeNode
+ * @Description  leetcode树节点类
+ * @Author StarLee
+ * @Date 2022/1/9
+ */
+
+public class TreeNode {
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
+
+    public TreeNode() {
+    }
+
+    public TreeNode(int val) {
+        this.val = val;
+    }
+
+    public TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}

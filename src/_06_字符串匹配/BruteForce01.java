@@ -9,7 +9,7 @@ package _06_字符串匹配;
 @SuppressWarnings("all")
 public class BruteForce01 {
     /**
-     * 蛮力匹配 - 改进
+     * 蛮力匹配 - 改进   可以过渡KMP算法
      */
     public static int indexOf2(String text, String pattern) {
         if (text == null || pattern == null) return -1;
@@ -20,7 +20,7 @@ public class BruteForce01 {
         if (tlen == 0 || plen == 0 || tlen < plen) return -1;
 
         int pi = 0, ti = 0;
-        while (pi < plen && ti - pi <= tlen - plen) { // ti - pi <= tlen - plen 是关键
+        while (pi < plen && ti - pi <= tlen - plen) { //改进之处 ti - pi <= tlen - plen 是关键
             if (textChars[ti] == patternChars[pi]) {
                 ti++;
                 pi++;

@@ -9,7 +9,7 @@ package _06_字符串匹配;
 @SuppressWarnings("all")
 public class BruteForce02 {
     /**
-     * 蛮力匹配2
+     * 蛮力匹配2   易于理解但是不能过渡KMP算法
      */
     public static int indexOf(String text, String pattern) {
         if (text == null || pattern == null) return -1;
