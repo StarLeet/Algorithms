@@ -7,9 +7,9 @@ package 算法面试._02_链表操作;
  * @Date 2022/1/8
  */
 
-class ListNode {
-    int val;
-    ListNode next;
+public class ListNode {
+    public int val;
+    public ListNode next;
 
     ListNode() {
     }

@@ -55,7 +55,7 @@ public class _0977_有序数组的平方 {
         int left = 0;
         int right = nums.length - 1;
         while (left <= right){
-            if(Math.pow(nums[left],2) <= Math.pow(nums[right],2)) {
+            if(Math.abs(nums[left]) <= Math.abs(nums[right])) {
                 nums[right] *= nums[right];
                 right--;
             }else{
@@ -65,7 +65,7 @@ public class _0977_有序数组的平方 {
     }
     private static void arrayInsert(int[]array, int cur,int dest){
         int curValue = array[cur] * array[cur];
-        if (dest - cur >= 0) System.arraycopy(array, cur + 1, array, cur, dest - cur);
+        if (dest >= cur) System.arraycopy(array, cur + 1, array, cur, dest - cur);
         array[dest] = curValue;
     }
 

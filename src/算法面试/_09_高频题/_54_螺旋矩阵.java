@@ -24,6 +24,8 @@ public class _54_螺旋矩阵 {
         *  top 4 5 6
         *  bom 7 8 9
         *      l r
+        *  // 到最后只有两种情况,只剩一行,只剩2行(正好遍历完退出)  只剩一行的需要 top <= bottom 判断退出
+        *  // 或者单列 只剩一列的需要 left <= right 判断退出
         */
         List<Integer> result = new ArrayList<>();
         int top = 0,bottom = matrix.length - 1;
@@ -37,11 +39,7 @@ public class _54_螺旋矩阵 {
                 result.add(matrix[i][right]);
             }
             right--;
-            /*  应对3行一列的情况
-            *   7
-            *   8
-            *   9
-            */
+            // 应对行为奇数的情况 || 列为1、2行的情况
             if (top > bottom || left > right) break;
             for (int i = right; i >= left; i--) {
                 result.add(matrix[bottom][i]);
