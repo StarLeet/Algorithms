@@ -32,12 +32,13 @@ public class _59_螺旋矩阵II {
             }
             top++;
             // 难点！！！
-            if (top > bottom || left > right) break;
+            if (top > bottom) break;
             int t = top;
             while (t <= bottom){
                 result[t++][right] = count++;
             }
             right--;
+            if (left > right) break;
             int r = right;
             while (r >= left){
                 result[bottom][r--] = count++;

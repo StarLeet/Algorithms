@@ -26,12 +26,13 @@ public class 剑指Offer_29_顺时针打印矩阵 {
                 result[totalLen++] = matrix[top][i];
             }
             top++;
+            if (top > bottom) break;
             // 下
             for (int i = top; i <= bottom; i++) {
                 result[totalLen++] = matrix[i][right];
             }
             right--;
-            if (top > bottom || left > right) break;
+            if (left > right) break;
             // 左
             for (int i = right; i >= left; i--) {
                 result[totalLen++] = matrix[bottom][i];

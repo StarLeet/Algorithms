@@ -43,14 +43,15 @@ public class _739_每日温度 {
         for (int i = temperatures.length - 2; i >= 0; i--) {
             int j = i + 1;
             while (true){
+                // 今天比明天(或者明天升温后)温度低
                 if (temperatures[i] < temperatures[j]) {
                     afterDay[i] = j - i;
                     break;
-                } else if (afterDay[j] == 0) {
+                } else if (afterDay[j] == 0) {  // 发现明天(或者升温后的最高温低于自己)不升温了
                     afterDay[i] = 0;
                     break;
                 }
-                // 当T[i] >= T[j]的时候
+                // 今天等于或者高于明天温度,需要随着明天的升温情况直到找到大于自己的
                 j = j + afterDay[j];
             }
         }

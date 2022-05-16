@@ -1,6 +1,9 @@
 package 算法面试._00_排序算法;
 
+import _0_Tools.Asserts;
 import _0_Tools.Integers;
+
+import java.util.logging.Level;
 
 /**
  * @ClassName MergeSort
@@ -10,15 +13,15 @@ import _0_Tools.Integers;
  */
 
 public class MergeSort {
-    private Integer[] leftArr;
+    private Integer[] rightArr;
     public void mergeSort(Integer[] arr){
         if (arr == null || arr.length <= 1) return;
-        leftArr = new Integer[arr.length >> 1];
+        rightArr = new Integer[arr.length >> 1];
         mergeSort(arr,0,arr.length);
     }
 
     private void mergeSort(Integer[] arr, int begin, int end){
-        if (end - begin == 1) return;
+        if (end - begin < 2) return;
         int mid = (begin + end) >> 1;
         mergeSort(arr,begin,mid);
         mergeSort(arr,mid,end);
@@ -26,22 +29,26 @@ public class MergeSort {
     }
     // 1 4 5     2 3 8
     private void merge(Integer[] arr, int begin, int mid, int end){
-        int length = mid - begin;
-        System.arraycopy(arr,begin,leftArr,0,length);
-        int curIndex = 0;
-        while (curIndex < length){
-            if (mid < end && leftArr[curIndex] > arr[mid]){
-                arr[begin++] = arr[mid++];
-            }else {
-                arr[begin++] = leftArr[curIndex++];
+        int curLength = end - mid;  // 继续沿用左闭右开
+        // 备份右半部分到备份数组
+        System.arraycopy(arr,mid,rightArr,0,curLength);
+        // 将备份数组的值还原回去
+        while (curLength > 0){
+            if (mid > begin && arr[mid - 1] > rightArr[curLength - 1]){
+                arr[--end] = arr[--mid];
+            }else{
+                arr[--end] = rightArr[--curLength];
             }
         }
     }
 
     public static void main(String[] args) {
-        Integer[] ints = Integers.random(50, 1, 10000);
+        Integer[] ints = Integers.random(100, 1, 10000);
         MergeSort mergeSort = new MergeSort();
         mergeSort.mergeSort(ints);
-        System.out.println();
+//        for (Integer anInt : ints) {
+//            System.out.print(anInt + " ");
+//        }
+        Asserts.test(Integers.isAscOrder(ints));
     }
 }

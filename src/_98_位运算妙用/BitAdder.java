@@ -1,3 +1,5 @@
+package _98_位运算妙用;
+
 /**
  * @ClassName Test
  * @Description 位运算实现加法

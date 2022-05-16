@@ -29,12 +29,13 @@ public class _54_螺旋矩阵 {
                 result.add(matrix[top][i]);
             }
             top++;
+            if (top > bottom) break;
             // 下
             for (int i = top; i <= bottom; i++) {
                 result.add(matrix[i][right]);
             }
             right--;
-            if (top > bottom || left > right) break;
+            if (left > right) break;
             // 左
             for (int i = right; i >= left; i--) {
                 result.add(matrix[bottom][i]);
